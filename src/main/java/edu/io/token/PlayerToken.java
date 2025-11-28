@@ -1,11 +1,13 @@
 package edu.io.token;
 
 import edu.io.Board;
+import edu.io.Player;
 
 public class PlayerToken extends Token {
     private Board board;
     private int col;
     private int row;
+    private Player player;
 
     public enum Move {
         NONE, LEFT, RIGHT, UP, DOWN
@@ -21,6 +23,16 @@ public class PlayerToken extends Token {
         this.col = startCol;
         this.row = startRow;
         board.placeToken(col, row, this);
+    }
+
+    // DODAJĘ TEN KONSTRUKTOR DLA TESTÓW
+    public PlayerToken(Player player, Board board) {
+        this(board);
+        this.player = player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public void move(Move dir) {
@@ -39,6 +51,11 @@ public class PlayerToken extends Token {
             col = oldCol;
             row = oldRow;
             throw new IllegalArgumentException("Cannot move outside the board");
+        }
+
+        Token encounteredToken = board.peekToken(col, row);
+        if (player != null && !(encounteredToken instanceof EmptyToken)) {
+            player.interactWithToken(encounteredToken);
         }
 
         board.placeToken(oldCol, oldRow, new EmptyToken());

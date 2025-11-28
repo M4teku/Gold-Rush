@@ -53,5 +53,17 @@ public class Board {
         System.out.println("===============\n");
     }
 
+    // DODAJĘ TĘ METODĘ
+    public Coords getAvailableSquare() {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (grid[col][row] instanceof EmptyToken) {
+                    return new Coords(col, row);
+                }
+            }
+        }
+        throw new IllegalStateException("No available squares on the board");
+    }
+
     public record Coords(int col, int row) {}
 }

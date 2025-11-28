@@ -1,14 +1,17 @@
 package edu.io;
 
 import edu.io.token.*;
+import edu.io.strategy.SequentialPlacementStrategy;
 
 public class Board {
     private int size;
     private Token[][] grid;
+    private PlacementStrategy placementStrategy;
 
     public Board() {
         this.size = 5;
         this.grid = new Token[size][size];
+        this.placementStrategy = new SequentialPlacementStrategy();
         clean();
     }
 
@@ -53,16 +56,17 @@ public class Board {
         System.out.println("===============\n");
     }
 
+    //nowe metody strategii
+    public void setPlacementStrategy(PlacementStrategy strategy) {
+        this.placementStrategy = strategy;
+    }
+
+    public PlacementStrategy getPlacementStrategy() {
+        return placementStrategy;
+    }
 
     public Coords getAvailableSquare() {
-        for (int row = 0; row < size; row++) {
-            for (int col = 0; col < size; col++) {
-                if (grid[col][row] instanceof EmptyToken) {
-                    return new Coords(col, row);
-                }
-            }
-        }
-        throw new IllegalStateException("No available squares on the board");
+        return placementStrategy.findAvailableSquare(this);
     }
 
     public record Coords(int col, int row) {}

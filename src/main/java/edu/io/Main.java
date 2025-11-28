@@ -4,13 +4,13 @@ import edu.io.token.*;
 
 public class Main {
     public static void main(String[] args) {
-        // STARY KOD - nadal działa
+
         Board board = new Board();
         board.placeToken(2, 2, new GoldToken());
         PlayerToken player = new PlayerToken(board);
         board.display();
 
-        // NOWY KOD z PDF
+
         Game game = new Game();
         Player playerObj = new Player();
         game.join(playerObj);
@@ -20,7 +20,7 @@ public class Main {
 
         game.start();
 
-        // Pokazujemy że poruszanie nadal działa
+
         System.out.println("--- Test poruszania ---");
         playerObj.token().move(PlayerToken.Move.RIGHT);
         playerObj.token().move(PlayerToken.Move.DOWN);

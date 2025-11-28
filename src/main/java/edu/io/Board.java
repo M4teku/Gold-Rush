@@ -53,7 +53,7 @@ public class Board {
         System.out.println("===============\n");
     }
 
-    // DODAJĘ TĘ METODĘ
+
     public Coords getAvailableSquare() {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {

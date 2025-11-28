@@ -25,7 +25,6 @@ public class PlayerToken extends Token {
         board.placeToken(col, row, this);
     }
 
-    // DODAJĘ TEN KONSTRUKTOR DLA TESTÓW
     public PlayerToken(Player player, Board board) {
         this(board);
         this.player = player;

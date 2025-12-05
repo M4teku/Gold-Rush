@@ -1,5 +1,5 @@
 package edu.io;
-
+import edu.io.Player;
 import edu.io.token.PlayerToken;
 
 public class Game {
@@ -20,7 +20,7 @@ public class Game {
     public void start() {
         System.out.println("=== GRA ROZPOCZĘTA ===");
         board.display();
-        System.out.println("Złoto gracza: " + player.gold() + " uncji");
+        System.out.println("Złoto gracza: " + player.gold.amount() + " uncji");
     }
 
     public Board board() {

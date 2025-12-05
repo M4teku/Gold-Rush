@@ -46,7 +46,7 @@ public class PlayerToken extends Token {
             case NONE: return;
         }
 
-        if (col < 0 || col >= 5 || row < 0 || row >= 5) {
+        if (col < 0 || col >= board.size() || row < 0 || row >= board.size()) {
             col = oldCol;
             row = oldRow;
             throw new IllegalArgumentException("Cannot move outside the board");

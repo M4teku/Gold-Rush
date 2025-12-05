@@ -1,10 +1,9 @@
 import edu.io.Board;
-import edu.io.Player;
 import edu.io.token.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import edu.io.Player;
 class BoardTest {
     Board board;
     Player player;
@@ -68,7 +67,7 @@ class BoardTest {
                 () -> board.getAvailableSquare());
     }
 
-    // -- utils
+
     boolean _is_board_clean() {
         int size = board.size();
         for (int row = 0; row < size; row++) {

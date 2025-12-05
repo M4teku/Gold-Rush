@@ -9,7 +9,7 @@ public class Board {
     private PlacementStrategy placementStrategy;
 
     public Board() {
-        this.size = 5;
+        this.size = 8;
         this.grid = new Token[size][size];
         this.placementStrategy = new SequentialPlacementStrategy();
         clean();
@@ -46,17 +46,16 @@ public class Board {
     }
 
     public void display() {
-        System.out.println("\n=== PLANSZA ===");
+        System.out.println("\n=== PLANSZA 8x8 ===");
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
                 System.out.print(grid[col][row].label() + " ");
             }
             System.out.println();
         }
-        System.out.println("===============\n");
+        System.out.println("===================\n");
     }
 
-    //nowe metody strategii
     public void setPlacementStrategy(PlacementStrategy strategy) {
         this.placementStrategy = strategy;
     }

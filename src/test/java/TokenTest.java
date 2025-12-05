@@ -1,9 +1,9 @@
 import edu.io.Board;
+import edu.io.Player;
 import edu.io.token.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.Modifier;
-import edu.io.Player;
 
 class TokenTest {
     @Test

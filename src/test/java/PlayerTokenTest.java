@@ -1,10 +1,10 @@
 import edu.io.Board;
+import edu.io.Player;
 import edu.io.token.EmptyToken;
 import edu.io.token.PlayerToken;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import edu.io.Player;
 
 class PlayerTokenTest {
     Board board;
